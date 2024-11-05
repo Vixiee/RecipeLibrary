@@ -1,0 +1,33 @@
+﻿@model List<Recipe>
+
+<h2>Списък с рецепти</h2>
+<p>
+    <a asp-action="Create">Добави нова рецепта</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Заглавие</th>
+            <th>Описание</th>
+            <th>Време за приготвяне (минути)</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                
+                <td>@recipe.Title</td>
+                <td>@recipe.Description</td>
+                <td>@recipe.PrepTimeInMinutes</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@recipe.Id">Детайли</a> |
+                    <a asp-action="Edit" asp-route-id="@recipe.Id">Редактиране</a> |
+                    <a asp-action="Delete" asp-route-id="@recipe.Id">Изтриване</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@model Recipe
+
+<h2>Изтриване на рецепта</h2>
+
+<h4>Сигурни ли сте, че искате да изтриете тази рецепта?</h4>
+<div>
+    <h5>@Model.Title</h5>
+    <p><strong>Описание:</strong> @Model.Description</p>
+    <p><strong>Време за приготвяне:</strong> @Model.PrepTimeInMinutes минути</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Изтрий</button>
+    <a asp-action="Index" class="btn btn-secondary">Отказ</a>
+</form>
